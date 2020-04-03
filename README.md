@@ -11,3 +11,5 @@ WeirWeather -
 - Mario Manca
 - Alexander Ulrichsen
 - Tesfu Gebremedhin
+
+![88040462_648263302590816_2950428286498373632_n](https://user-images.githubusercontent.com/56979222/78376794-bb071780-75c6-11ea-8184-1afd0f571e2a.png)
