@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<title>WeirWeather AWS Data Display</title>
+
+<head>
+    <!--Meta information-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Author" content="Callum Brooksby">
+    <!--Link to CSS files-->
+    <link rel="stylesheet" type="text/css" href="./css/Styles.css">
+    <link rel="stylesheet" type="text/css" href="./css/Styles1.css">
+    <link rel="stylesheet" type="text/css" href="./css/Theme.css">
+
+    <!--Link to JavaScript files-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            getCurrentData();
+            refresh();
+        });
+
+        function refresh() {
+            setTimeout(function() {
+                getCurrentData();
+                refresh();
+            }, 1000);
+        }
+    </script>
+
+    <script type="text/javascript" src="./js/DataImport.js"></script>
+    <script type="text/javascript" src="./js/plotChart.js"></script>
+    <script src="https://canvas-gauges.com/download/latest/all/gauge.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+</head>
+
+<body onload="startTime()">
+    <nav class="top_element">
+        <div class="bar white wide padding card">
+            <a href="#home" class="bar-item button"><b>W</b>eir<b>W</b>eather</a>
+            <image class="image" src="./Images/logo.png" alt="Logo" style="width:45px"></image>
+            <div class="right hide-small">
+                <a href="#About" class="bar-item button">About</a>
+                <a href="#Summary" class="bar-item button">Summary</a>
+                <a href="#Current" class="bar-item button">Current</a>
+                <a href="#Historical" class="bar-item button">Historical</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="display-container content wide" style="max-width:1500px;" id="home">
+        <img class="image" src="./Images/james.png" alt="JamesWeir" style="width:100%">
+        <div class="display-middle margin-top center">
+            <h1 class="xxlarge text-white"><span class="padding black opacity-min"><b>W</b>eir</span> <span class="hide-small text-grey"><b>W</b>eather</span></h1>
+        </div>
+    </header>
+
+    <div class="content padding" style="max-width:1564px">
+        <div class="w3-col s12 l6 w3-center">
+        
+      
+            <div class="content padding" style="max-width:1564px">
+                <div class="container padding-32" id="About">
+                    <h3 class="set-border-bottom border-light-grey padding-16">About</h3>
+                    <p>This website provides live weather measurements from an Automatic Weather Station (AWS) on the top of the James Weir building at the University of Strathclyde in Glasgow.</p>  
+                    <p>Co-Ordinates: [55.862809, -4.245339]</p>
+                    <p>The AWS was designed, manufactured and tested by a group of 5 Electronic & Electrical Engineering students for their master’s group project at the university. The website not only provides live weather measurements, but also data from an external API for comparison. </p>
+                    <p>The graphs in the historical section allow you to view the recorded visually and download the complete dataset for further analysis. The AWS section describes the weather station and gives the specifications, drawings, photos and the user guide.</p>
+
+                    <!--<div class="a">
+                        <p class="a">- Callum Brooksby</p>
+                        <p class="a">- Zack North</p>
+                        <p class="a">- Mario Manca</p>
+                        <p class="a">- Alexander Ulrichsen</p>
+                        <p class="a">- Tesfu Gebremedhin</p>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <div class="w3-col s12 l6 w3-center">
+            <div class="content padding" style="max-width:1564px">
+                <div class="container padding-32" id="Summary">
+                    <h3 class="set-border-bottom border-light-grey padding-16">Measurement Summary</h3>
+                    <div class="w3-table-all">
+                        <table style="width:90">
+                            <tr>
+                                <th>Measurement</th>
+                                <th>Value</th>
+                                <th>External Data</th>
+                            </tr>
+                            <tr>
+                                <td>Date/ Time Updated</td>
+                                <td id="Time"></td>
+                                <td id="APItime"></td>
+                            </tr>
+                            <tr>
+                                <td>Temperature</td>
+                                <td id="Temp"></td>
+                                <td id="APItemp"></td>
+                            </tr>
+                            <tr>
+                                <td>Humidity</td>
+                                <td id="Hum"></td>
+                                <td id="APIhum"></td>
+                            </tr>
+                            <tr>
+                                <td>Wind Speed</td>
+                                <td id="Speed"></td>
+                                <td id="APIspeed"></td>
+                            </tr>
+                            <tr>
+                                <td>Wind Direction</td>
+                                <td id="Dir"></td>
+                                <td id="APIdir"></td>
+                            </tr>
+                            <tr>
+                                <td>Rain Level (Daily Ammount)</td>
+                                <td id="Rai"></td>
+                                <td id="APIrai"></td>
+                            </tr>
+                            <tr>
+                                <td>Barometric Pressure</td>
+                                <td id="Air"></td>
+                                <td id="APIair"></td>
+                            </tr>
+                            <tr>
+                                <td>Day Light Hours</td>
+                                <td id="Solar"></td>
+                                <td id="APIsolar"></td>
+                            </tr>
+                            <tr>
+                                <td>Boot Count</td>
+                                <td id="Boot"></td>
+                                <td id="APIboot"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page content Current-->
+    <div class="content padding" style="max-width:1564px">
+        <!-- Current Section header-->
+        <script type="text/javascript" src="./js/Clock.js"></script>
+        <div class="container padding-32" id="Current">
+            <h3 class="set-border-bottom border-light-grey padding-16">Current</h3>
+        </div>
+
+        <!--Element in Current -->
+        <div class="row-padding">
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="display-container box-border">
+                    <div class="w3-light-gray padding">Time</div>
+                    <div class="display-container center padding-16">Current Time:
+                        <strong id="txt"></strong>
+                    </div>
+                    <div class="display-container center padding-16">Last updated:
+                        <div class="w3-padding-large">
+                            <div id="Time1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Temperature element-->
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="display-container box-border">
+                    <div class="w3-light-gray padding">Temperature</div>
+                    <div class="display-container center w3-padding-small">
+                        <script type="text/javascript" src="./js/Temperature.js"></script>
+                        <canvas id="Temperature"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!--Rainfall element-->
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="display-container box-border">
+                    <div class="w3-display-top left w3-light-gray padding">Rainfall</div>
+                    <div class="display-container center w3-padding-small">
+                        <script type="text/javascript" src="./js/Rain.js"></script>
+                        <canvas id="Rain"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!--Wind element-->
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="display-container box-border">
+                    <div class="w3-display-top left w3-light-gray padding">Wind </div>
+                    <div class="display-container center w3-padding-small">
+                        <script type="text/javascript" src="./js/Wind.js"></script>
+                        <canvas id="Wind"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--Next row of current elements-->
+        <div class="row-padding">
+            <!--Input extra -->
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="display-container box-border">
+                    <div class="w3-display-top left w3-light-gray padding">Humidity</div>
+                    <div class="display-container center w3-padding-small">
+                        <script type="text/javascript" src="./js/Humidity.js"></script>
+                        <canvas id="Humidity"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="display-container box-border">
+                    <div class="w3-display-top left w3-light-gray padding">Barometric Pressure</div>
+                    <div class="display-container center w3-padding-small">
+                        <script type="text/javascript" src="./js/Pressure.js"></script>
+                        <canvas id="Pressure"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="display-container box-border">
+                    <div class="w3-display-top left w3-light-gray padding">Solar Radiation</div>
+                    <div class="display-container center w3-padding-small">
+                        <script type="text/javascript" src="./js/SolarRadiation.js"></script>
+                        <canvas id="SolarRadiation"></canvas>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="display-container box-border">
+                    <div class="w3-display-top left w3-light-gray padding">AWS Status</div>
+                    <div class="display-container center w3-padding-small">
+                        <!--Battery Voltage Status-->
+                        <img id="StatusImg" src="./Images/offline.png" style="width:133px">
+                        <div id="Status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="w3-modal"></div>
+        <!--Page content Historical-->
+        <div class="content padding" style="max-width:1564px">
+            <!-- Historical Section header-->
+            <div class="container padding-32" id="Historical">
+                <h3 class="set-border-bottom border-light-grey padding-16">Historical</h3>
+                <div id="T" style="height: 400px; min-width: 310px"></div>
+                <div id="H" style="height: 400px; min-width: 310px"></div>
+                <div id="P" style="height: 400px; min-width: 310px"></div>
+                <div id="R" style="height: 400px; min-width: 310px"></div>
+                <div id="WD" style="height: 400px; min-width: 310px"></div>
+                <div id="WS" style="height: 400px; min-width: 310px"></div>
+                
+                <script>
+                    console.log("Gets here");
+                    plotChart('T', 'Temperature', '°C');
+                    plotChart('H', 'Humidity', '%');
+                    plotChart('P', 'Air_Pressure', 'hPa');
+                    plotChart('R', 'Rain_Level', 'mm');
+                    plotChart('WD', 'Wind_Direction', '°');
+                    plotChart('WS', 'Wind_Speed', 'm/s');
+                </script>  
+            </div>
+
+        </div>
+
+        <footer class="container w3-theme-l4">
+            <h3 class="xxlarge text-white"><span class="padding black opacity-min"><b>W</b>eir</span> <span class="hide-small text-grey"><b>W</b>eather</span></h3>
+            <a href="#Summary" class="bar-item button">Summary</a>
+            <a href="#Current" class="bar-item button">Current</a>
+            <a href="#Historical" class="bar-item button">Historical</a>
+            <!--<img class="image" src="./Images/logo.png" alt="JamesWeir" style="width:5%" align="right">-->
+            <pre class="tab center"> @2020 WeirWeather University of Strathclyde </pre>
+
+        </footer>
+
+        <script type="text/javascript" src="./js/externalApiImport.js"></script>
+
+</body>
+
+</html>
