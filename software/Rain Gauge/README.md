@@ -9,3 +9,4 @@ The `Rain_Gauge/` folder contains the corresponding `.ino` file. The code is int
  - Evaluate the amount of rain fallen per day in mm
  - Evaluate the rain intensity in mm/h
  - Averaging function for better results
+ - Send data to master on request
