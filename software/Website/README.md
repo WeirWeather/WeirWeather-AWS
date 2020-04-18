@@ -12,9 +12,6 @@ MAMP was used as the web hosting and database package for this project.
 
 Visual Studio Code was used for development of all code files.
 
-```
-Give examples
-```
 
 ### Installing
 
