@@ -1,0 +1,17 @@
+﻿"Symbol";"Value";"Unit";
+"SUPPLIER_NAME";"RS Components";"";
+"TraceParts.PartVersion";"1.1.0";"";
+"SUPPLIER";"Bopla";"";
+"TraceParts.PartStatus";"Published";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"RS_STOCK_NUMBER";"295340";"";
+"REVISION";"A";"";
+"DESIGN";"Ecoline Aluminium Enclosure, IP40, Shielded, Flanged, 150 x 120 x 42mm";"";
+"TraceParts.InstanceId";"10-20072015-122130CWWGLAJAGS6D6WUNSAVP4VYFC";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.PartTitle";"Ecoline Aluminium Enclosure, IP40, Shielded, Flanged, 150 x 120 x 42mm";"";
+"REFERENCE";"83124150.S1";"";
+"TIMESTAMP";"30/06/2015 16:02";"";
+"TraceParts.PartNumber";"10-20072015-122130";"";
+"TraceParts.PartStatusId";"";"";
+"TraceParts.ClassPath";"RS_COMPONENTS:10-20072015-122130";"";

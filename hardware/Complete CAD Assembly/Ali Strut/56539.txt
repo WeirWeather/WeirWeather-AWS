@@ -1,0 +1,17 @@
+﻿"Symbol";"Value";"Unit";
+"SUPPLIER_NAME";"RS Components";"";
+"TraceParts.PartVersion";"1.1.3";"";
+"SUPPLIER";"Bosch Rexroth";"";
+"TraceParts.PartStatus";"Published";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"RS_STOCK_NUMBER";"4597211";"";
+"REVISION";"A";"";
+"DESIGN";"Bosch Rexroth Aluminium Strut Profile, 10mm Groove , 3000mm L, 40 x 40mm strut profile";"";
+"TraceParts.InstanceId";"10-20072015-123890AZAWWE1HC2GQYC8QBJ8WTJ7U2";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.PartTitle";"Bosch Rexroth Aluminium Strut Profile, 10mm Groove , 3000mm L, 40 x 40mm strut profile";"";
+"REFERENCE";"3842993120/3000";"";
+"TIMESTAMP";"30/06/2015 16:02";"";
+"TraceParts.PartNumber";"10-20072015-123890";"";
+"TraceParts.PartStatusId";"";"";
+"TraceParts.ClassPath";"RS_COMPONENTS:10-20072015-123890";"";
