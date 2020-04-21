@@ -1,0 +1,13 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"10-15052018-122883";"";
+"REFERENCE";"PJ-005A";"";
+"TraceParts.PartTitle";"PJ-005A - 2.0 mm Center Pin, 5.0 A, Vertical, Panel Mount, Dc Power Jack Connector, RoHS Compliant";"";
+"TraceParts.InstanceId";"10-15052018-1228838NO0BM9MYJVMC1PFUQ3LHZO25";"";
+"DESIGN";"2.0 mm Center Pin, 5.0 A, Vertical, Panel Mount, Dc Power Jack Connector";"";
+"TraceParts.PartStatus";"Published";"";
+"TraceParts.PartStatusId";"";"";
+"SUPPLIER";"CUI";"";
+"TraceParts.PartVersion";"1.0.1";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.ClassPath";"CUI:10-15052018-122883";"";
