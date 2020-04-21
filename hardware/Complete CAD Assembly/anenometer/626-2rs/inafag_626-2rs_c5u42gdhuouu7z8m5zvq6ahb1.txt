@@ -1,0 +1,11 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"69-18092006-797600";"";
+"TraceParts.ClassPath";"INAFAG:/F_INAFAG/69-18092006-797600";"";
+"TraceParts.InstanceId";"69-18092006-797600397O7YOK7SR03EVAE3NE7ZB5K";"";
+"REFERENCE";"626-2RS";"";
+"DESIGN";"Radial ball bearing";"";
+"SUPPLIER";"Schaeffler Technologies AG & Co. KG";"";
+"SELECTION";"626-2RS";"";
+"TraceParts.PartStatus";"Published";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartVersion";"1.3.3";"";

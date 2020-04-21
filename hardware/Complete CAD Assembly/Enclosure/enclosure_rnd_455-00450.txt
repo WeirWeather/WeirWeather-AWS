@@ -1,0 +1,17 @@
+﻿"Symbol";"Value";"Unit";
+"REFERENCE";"RND 455-00450";"";
+"MATERIAL";"Aluminium alloy";"";
+"SUPPLIER";"DISTRELEC";"";
+"TraceParts.PartStatus";"Published";"";
+"TraceParts.PartNumber";"33-27092018-103226";"";
+"INGRESS_PROTECTION";"IP 67";"";
+"TraceParts.PartLanguage";"en";"";
+"DESIGN";"Aluminium Enclosure with EMI Protection, aluminium, 150 x 200 x 50 mm";"";
+"TraceParts.InstanceId";"33-27092018-103226CTJTLHL9PQ538KIQP0125H0U5";"";
+"TraceParts.PartTitle";"Aluminium Enclosure with EMI Protection - Product Family 1357728";"";
+"COLOR";"aluminium";"";
+"TraceParts.PartVersion";"1.0.8";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartStatusId";"";"";
+"TraceParts.ClassPath";"DISTRELEC:33-27092018-103226";"";
+"EXT_DIM";"150 x 200 x 50 mm";"";

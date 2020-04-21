@@ -1,0 +1,13 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"30-05112015-062679";"";
+"REFERENCE";"3842528967";"";
+"TraceParts.PartTitle";"Connection elements";"";
+"TraceParts.InstanceId";"30-05112015-062679EJAE0HVOYJT41UYXX5T80CHYL";"";
+"DESIGN";"BRACKET 40X40";"";
+"TraceParts.PartStatus";"Published";"";
+"TraceParts.PartStatusId";"";"";
+"SUPPLIER";"Bosch Rexroth AG";"";
+"TraceParts.PartVersion";"1.1.3";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.ClassPath";"BOSCH:30-05112015-062679";"";
