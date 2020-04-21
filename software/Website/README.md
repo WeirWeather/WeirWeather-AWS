@@ -1,6 +1,6 @@
 # Weir Weather Automatic Weather Station Data Display
 
-This is the web files for the website used to store and display all weather data taken from the automatic weather station designed as part of a 5th MEng project at the Universit of Starhclyde
+This is the web files for the website used to store and display all weather data taken from the automatic weather station designed as part of a 5th MEng project at the University of Strathclyde
 
 ## Getting Started
 
