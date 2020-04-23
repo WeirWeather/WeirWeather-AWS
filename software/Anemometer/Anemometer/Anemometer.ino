@@ -8,8 +8,6 @@
 const int magnets = 4;                    // Number of pulses/magnets per revolution
 int hall_count = 0;
 float start_time;
-//float end_time;
-//float time_passed;
 float rps;
 float omega;
 const float radius = 0.04;                // Anemometer radius [m]
