@@ -26,12 +26,39 @@ $result2 = $mysqli->query($sql2);
 
 $result2 = $result2->fetch_assoc();
 
+$dateTime = $result["Date_Time"];
+
+$date = substr($dateTime, 0, 10);   #Get most current date in database
+$dateLower = $date . " 00:00:00";   #Start of day
+$dateUpper = $date . " 23:59:59";   #End of day
+
+#Request to find all times from the current day where day light is present
+$sqlDayLightHours = "SELECT Date_Time FROM Weather_Data_Table WHERE Date_Time >= '$dateLower' AND Date_Time <= '$dateUpper' AND Solar_Radiation > 0";
+
+$resultsDLH = $mysqli->query($sqlDayLightHours);
+
+$unixTimes = array();
+
+#Parse all date/times recieved from request and convert to unix time
+while ($row = mysqli_fetch_assoc($resultsDLH)){
+    $unixTimes[] = array(
+        strtotime($row["Date_Time"])
+    );
+}
+
+$lowestTime = min($unixTimes);
+$highestTime = max($unixTimes);
+
+$difference = $highestTime[0] - $lowestTime[0]; #Calculate daylight hours
+
+$dayLightHours = gmdate("H:i:s", $difference);    #Convert from unix time to hours, minutes and seconds
+
 $currentWeatherData = array(
     "AWS_data" => array(
         "dateTime" => $result["Date_Time"],
         "windSpeed" => $result["Wind_Speed"],
         "windDirection" => $result["Wind_Direction"],
-        "solarRadiation" => $result["Solar_Radiation"],
+        "dayLightHours" => $dayLightHours,
         "temperature" => $result["Temperature"],
         "humidity" => $result["Humidity"],
         "rainLevel" => $result["Rain_Level"],
@@ -42,7 +69,7 @@ $currentWeatherData = array(
         "dateTime" => $result2["Date_Time"],
         "windSpeed" => $result2["Wind_Speed"],
         "windDirection" => $result2["Wind_Direction"],
-        "solarRadiation" => $result2["Solar_Radiation"],
+        #"solarRadiation" => $result2["Solar_Radiation"],
         "temperature" => $result2["Temperature"],
         "humidity" => $result2["Humidity"],
         "rainLevel" => $result2["Rain_Level"],

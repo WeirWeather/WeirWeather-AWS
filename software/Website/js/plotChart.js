@@ -1,7 +1,5 @@
 function plotChart(id, weatherType, metric) {
-    
-    console.log("Calls function");
-
+ 
     console.log(id);
     console.log(weatherType);
     

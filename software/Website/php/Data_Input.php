@@ -61,7 +61,7 @@ if (is_numeric($solarRadiation)){
 
 #If temperature posted and within given range, add it to SQL querey
 if (is_numeric($temp)){
-    if (($temp>=-40) and ($temp<=40)) {
+    if (($temp>=-40) and ($temp<=50)) {
         $sql_str1 .= ", Temperature";
         $sql_str2 .= ", '$temp'";
     }
@@ -77,7 +77,7 @@ if (is_numeric($humidity)){
 
 #If rainLevel posted and within given range, add it to SQL querey
 if (is_numeric($rainLevel)){
-    if (($rainLevel>=0) and ($rainLevel<=50) ) {
+    if (($rainLevel>=0) and ($rainLevel<=1850) ) {
         $sql_str1 .= ", Rain_Level";
         $sql_str2 .= ", '$rainLevel'";
     }
@@ -106,8 +106,8 @@ $mysqli->query($sql);
 
 
 #Make call to external API
-CallAPI("GET", "http://api.weatherapi.com/v1/current.json?key=6e5fb12f032f436789593149202401&q=Glasgow");
-$APIrequest = json_decode(CallAPI("GET", "http://api.weatherapi.com/v1/current.json?key=6e5fb12f032f436789593149202401&q=Glasgow"), true);
+$apiKey = ""; # *Your API key from WeatherAPI*
+$APIrequest = json_decode(CallAPI("GET", "http://api.weatherapi.com/v1/current.json?key=" . $apiKey . "&q=Glasgow"), true);
 $windSpeed = round($APIrequest["current"]["wind_kph"] * 0.2777778, 2);
 $windDirection = $APIrequest["current"]["wind_degree"];
 $solarRadiation = $APIrequest["current"]["cloud"];
