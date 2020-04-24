@@ -7,23 +7,21 @@ function getCurrentData() {
                 console.error("no data being received")
             }
             document.getElementById("Time").innerHTML = obj.AWS_data.dateTime;
-            document.getElementById("Speed").innerHTML = obj.AWS_data.windSpeed + "m/s";
-            document.getElementById("Dir").innerHTML = "<p>" + compass(obj.AWS_data.windDirection) + " - " + obj.AWS_data.windDirection + " degrees" + "</p>";
-            document.getElementById("Solar").innerHTML = obj.AWS_data.solarRadiation + "%";
+            document.getElementById("Speed").innerHTML = obj.AWS_data.windSpeed + " m/s";
+            document.getElementById("Dir").innerHTML = "<p>" + compass(obj.AWS_data.windDirection) + " - " + obj.AWS_data.windDirection + "°" + "</p>";
+            document.getElementById("Solar").innerHTML = obj.AWS_data.dayLightHours;
             document.getElementById("Temp").innerHTML = obj.AWS_data.temperature + "°C";
             document.getElementById("Hum").innerHTML = obj.AWS_data.humidity + "%";
-            document.getElementById("Rai").innerHTML = obj.AWS_data.rainLevel + "mm";
-            document.getElementById("Air").innerHTML = obj.AWS_data.airPressure + "hPa";
-            document.getElementById("Boot").innerHTML = obj.AWS_data.bootCount;
+            document.getElementById("Rai").innerHTML = obj.AWS_data.rainLevel + " mm";
+            document.getElementById("Air").innerHTML = obj.AWS_data.airPressure + " hPa";
 
             document.getElementById("APItime").innerHTML = obj.Ext_API_data.dateTime;
-            document.getElementById("APIspeed").innerHTML = obj.Ext_API_data.windSpeed + "m/s";
-            document.getElementById("APIdir").innerHTML = "<p>" + compass(obj.Ext_API_data.windDirection) + " - " + obj.Ext_API_data.windDirection + " degrees" + "</p>";
-            document.getElementById("APIsolar").innerHTML = obj.Ext_API_data.solarRadiation + "%";
+            document.getElementById("APIspeed").innerHTML = obj.Ext_API_data.windSpeed + " m/s";
+            document.getElementById("APIdir").innerHTML = "<p>" + compass(obj.Ext_API_data.windDirection) + " - " + obj.Ext_API_data.windDirection + "°" + "</p>";
             document.getElementById("APItemp").innerHTML = obj.Ext_API_data.temperature + "°C";
             document.getElementById("APIhum").innerHTML = obj.Ext_API_data.humidity + "%";
-            document.getElementById("APIrai").innerHTML = obj.Ext_API_data.rainLevel + "mm";
-            document.getElementById("APIair").innerHTML = obj.Ext_API_data.airPressure + "hPa";
+            document.getElementById("APIrai").innerHTML = obj.Ext_API_data.rainLevel + " mm";
+            document.getElementById("APIair").innerHTML = obj.Ext_API_data.airPressure + " hPa";
 
             document.getElementById("Time1").innerHTML = "<strong>" + obj.AWS_data.dateTime + "</strong>";
 

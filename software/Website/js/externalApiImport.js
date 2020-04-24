@@ -6,12 +6,10 @@ xmlhttp.onreadystatechange = function() {
             console.error("no data being received")
         }
 
-        
-
         //document.getElementById("APItime").innerHTML = obj.;
         document.getElementById("APIspeed").innerHTML = (obj.current.wind_kph*0.2777778).toFixed(2) + "m/s";
         document.getElementById("APIdir").innerHTML = "<p>" + compass(obj.current.wind_degree) + " - " + obj.current.wind_degree + " degrees" + "</p>";
-        document.getElementById("APIsolar").innerHTML = obj.current.cloud + "%";
+        //document.getElementById("APIsolar").innerHTML = obj.current.cloud + "%";
         document.getElementById("APItemp").innerHTML = obj.current.temp_c + "°C";
         document.getElementById("APIhum").innerHTML = obj.current.humidity + "%";
         document.getElementById("APIrai").innerHTML = obj.current.precip_mm + "mm";
@@ -28,7 +26,8 @@ xmlhttp.onreadystatechange = function() {
         console.log("Not found");
     }
 };
-xmlhttp.open("GET", "http://api.weatherapi.com/v1/current.json?key=6e5fb12f032f436789593149202401&q=Glasgow", true);
+apiKey = "" // *Your API key from WeatherAPI*
+xmlhttp.open("GET", "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "=Glasgow", true);
 xmlhttp.send();
 
 
